@@ -1,0 +1,142 @@
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --nav-bg: #222;
+    --card-bg: #111;
+    --border-color: #fff;
+    --button-bg: linear-gradient(90deg, red, purple);
+    --button-text: #fff;
+    --scrollbar-thumb: red;
+    --scrollbar-track: #222;
+    --hover-bg: #fff;
+    --hover-text: #000;
+    --hover-border: red;
+    --login-shadow: purple;
+    --character-bg: #f0f0f0;
+    --team-img-bg: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.navbar {
+    background: var(--nav-bg);
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar a.selected {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-color: var(--border-color);
+}
+
+
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Transformers', Arial, sans-serif;
+    border: 2px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: var(--button-bg);
+    border-color: var(--border-color);
+}
+
+button {
+    background: var(--button-bg);
+    border: 2px solid var(--border-color);
+    color: var(--button-text);
+    font-family: 'Transformers', Arial, sans-serif;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-border);
+}
+
+.theme-toggle {
+    display: none; /* hide toggle */
+}
+
+@font-face {
+    font-family: 'Transformers';
+    src: url('../fonts/Transformers.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, button, .navbar a {
+    font-family: 'Transformers', Arial, sans-serif;
+}
+
+/* Movies, lists, login, team, characters, items */
+.movie { display: flex; align-items: flex-start; gap: 15px; padding: 10px; background: var(--card-bg); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 15px; }
+.movie img { width: 120px; height: auto; flex-shrink: 0; }
+.movie-text { display: flex; flex-direction: column; justify-content: flex-start; }
+.movie h2, .movie p { color: var(--text-color); }
+.movie h2 { margin: 0 0 5px 0; font-size: 18px; }
+.movie p { margin: 0; font-size: 14px; }
+.movie-list { display: flex; flex-direction: column; gap: 15px; }
+.movie-list::-webkit-scrollbar { height: 10px; }
+.movie-list::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 5px; }
+.movie-list::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+
+.login-form { display: flex; flex-direction: column; max-width: 320px; margin: auto; gap: 12px; padding: 20px; border: 2px solid var(--border-color); border-radius: 12px; background: var(--card-bg); box-shadow: 0 0 15px var(--login-shadow); }
+.login-form label { text-align: left; font-weight: bold; }
+.login-form input { padding: 8px; border: 2px solid var(--border-color); border-radius: 6px; background: var(--bg-color); color: var(--text-color); }
+
+.team-list, .character-list, .shop-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; align-items: center; }
+.team img, .character img, .item img { border-radius: 8px; transition: transform 0.3s; }
+.team img { background-color: var(--team-img-bg); width: 200px; height: 200px; object-fit: cover; }
+.character img { background-color: var(--character-bg); width: 200px; height: 200px; object-fit: contain; }
+.item img { width: 200px; height: 200px; object-fit: cover; }
+.team img:hover, .character img:hover, .item img:hover { transform: scale(1.05); }
+.character p { margin: 10px 0 5px; text-align: center; }
+.character button, .item button { display: block; margin: 10px auto 0 auto; }
+
+.character .dashboard-items { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+.character .dashboard-items button.add, .character .dashboard-items button.remove { background-color: var(--hover-bg); color: var(--button-text); border: 2px solid var(--border-color); }
+.character .dashboard-items button.add:hover { background-color: #3F51B5; color: white; }
+.character .dashboard-items button.remove:hover { background-color: #f44336; color: white; }
+
+.new-button { position: fixed; bottom: 20px; right: 20px; background: var(--button-bg); color: var(--button-text); border: 2px solid var(--border-color); border-radius: 6px; padding: 10px 16px; font-family: 'Transformers', Arial, sans-serif; cursor: pointer; transition: all 0.3s ease; z-index: 1000; }
+.new-button:hover { background: green; color: var(--button-text); border-color: var(--border-color); }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .movie img { width: 220px; }
+    .movie h2 { font-size: 20px; }
+    .navbar ul { gap: 10px; }
+    .movie { flex-direction: column; align-items: center; text-align: center; }
+    .team-list, .character-list, .shop-items { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .navbar ul { flex-direction: column; align-items: center; gap: 30px; }
+    .navbar a { width: 80%; text-align: center; }
+    .team-list, .character-list, .shop-items { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
