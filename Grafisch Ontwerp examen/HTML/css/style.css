@@ -46,7 +46,6 @@ body {
     border-color: var(--border-color);
 }
 
-
 .navbar a {
     color: var(--text-color);
     text-decoration: none;
@@ -304,5 +303,77 @@ h1, h2, h3, button, .navbar a {
 
     .team-list, .character-list, .shop-items {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+/* ---------------------- */
+/* 🟣 Megatron Page Style */
+/* ---------------------- */
+
+.character-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.character-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 15px purple;
+}
+
+.character-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--border-color);
+}
+
+.character-info h1 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.character-info p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.character-info button {
+    margin-top: 15px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 2px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.character-info button:hover {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-border);
+}
+
+@media (max-width: 768px) {
+    .character-profile {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .character-image {
+        width: 150px;
+        height: 150px;
     }
 }
